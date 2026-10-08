@@ -379,7 +379,7 @@ local_views(a::DistributedInterpolable) = a.interps
 
 function Interpolable(f::DistributedCellField;kwargs...)
   interps = map(local_views(f)) do f
-    Interpolable(f,kwargs...)
+    Interpolable(f;kwargs...)
   end
   DistributedInterpolable(interps)
 end
